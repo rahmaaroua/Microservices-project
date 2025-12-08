@@ -1,0 +1,10 @@
+server:
+  port: 8888  # Définit le port sur lequel votre config-server sera disponible
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlab.com/ThourayaLouati/e-commerce-microservices.git  # Remplacez par l'URL de votre dépôt Git contenant les configurations
+          clone-on-start: true  # Clone le dépôt Git lors du démarrage du serveur de configuration pour garantir la mise à jour des fichiers
