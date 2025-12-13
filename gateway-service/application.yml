@@ -5,14 +5,11 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: product-service
-          uri: lb://product-microservice
+        - id: reservation-service
+          uri: lb://reservation-microservice
           predicates:
-            - Path=/products/**
-        - id: user-service
-          uri: lb://user-microservice
-          predicates:
-            - Path=/users/**
+            - Path=/reservation/**
+
 
 eureka:
   client:

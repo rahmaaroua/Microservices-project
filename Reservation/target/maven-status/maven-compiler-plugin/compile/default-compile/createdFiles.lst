@@ -1,0 +1,6 @@
+tn\univ\ReservationMicroservice\Repository\ReservationRepository.class
+tn\univ\ReservationMicroservice\Service\Classes\ReservationServiceImpl.class
+tn\univ\ReservationMicroservice\Service\Interfaces\IReservationService.class
+tn\univ\ReservationMicroservice\ReservationMicroserviceApplication.class
+tn\univ\ReservationMicroservice\Controller\ReservationController.class
+tn\univ\ReservationMicroservice\Entity\Reservation.class
