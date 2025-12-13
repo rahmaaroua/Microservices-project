@@ -1,4 +1,4 @@
-package tn.univ.ReservationMicroservice.Entity;
+package tn.univ.GestionEvenement.Entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -40,9 +40,5 @@ public class Evenement implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date datef;
     private float cout;
-    @ManyToMany
-    List <Participant> participants;
-    @OneToMany
-    @JsonIgnore
-    List <Logistique> logistiques;
+
 }

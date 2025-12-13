@@ -1,19 +1,13 @@
-package tn.univ.ReservationMicroservice.Repository;
+package tn.univ.GestionEvenement.Repository;
 
-import java.util.Date;
-import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import tn.esprit.spring.persistence.entities.Evenement;
+import tn.univ.GestionEvenement.Entity.Evenement;
 
 @Repository
-public interface EvenementRepository extends CrudRepository <Evenement, Integer>{
+public interface EvenementRepository extends JpaRepository<Evenement, Integer> {
 
     Evenement findByDescription(String description);
-
-    List <Evenement> findByDatedBetween(Date dateDebut, Date dateFin);
-
-
 }
