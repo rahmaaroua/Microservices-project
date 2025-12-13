@@ -12,4 +12,6 @@ public interface IReservationService {
     Reservation addReservation(Reservation r);
     Reservation updateReservation(Reservation r);
     void deleteReservation(int idReservation);
+
+    tn.univ.ReservationMicroservice.Dto.EvenementDto getEvenement(int id);
 }

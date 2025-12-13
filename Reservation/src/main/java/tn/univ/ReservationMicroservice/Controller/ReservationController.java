@@ -38,4 +38,10 @@ public class ReservationController {
     public void removeReservation(@PathVariable("id") int idReservation) {
         reservationService.deleteReservation(idReservation);
     }
+
+    @GetMapping("/test/Evenement/{id}")
+    public tn.univ.ReservationMicroservice.Dto.EvenementDto testEvenement(@PathVariable int id) {
+        return reservationService.getEvenement(id);
+    }
+
 }

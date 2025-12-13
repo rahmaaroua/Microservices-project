@@ -1,6 +1,6 @@
 spring:
 application:
-name: reservation-microservice # Nom de l'application pour identification dans
+name: evenement-microservice # Nom de l'application pour identification dans
   Eureka
 cloud:
 uri: http://localhost:8888 # Adresse de votre Config Server
