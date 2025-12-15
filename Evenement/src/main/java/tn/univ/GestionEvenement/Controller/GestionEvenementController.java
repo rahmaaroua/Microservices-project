@@ -46,7 +46,7 @@ public class GestionEvenementController {
 
     // ... votre méthode getEvenementById
 
-    // AJOUTER CETTE MÉTHODE TEMPORAIRE
+  /*  // AJOUTER CETTE MÉTHODE TEMPORAIRE
     @GetMapping("/count")
     public String countEvenements() {
         // On compte le nombre d'événements dans la base de données
@@ -54,5 +54,18 @@ public class GestionEvenementController {
 
         // On retourne le résultat sous forme de texte simple
         return "Il y a " + count + " événement(s) dans la table 'evenement'.";
+    }
+*/
+    @Value("${server.port}")
+    private String serverPort;
+
+    @GetMapping("/count")
+    public String count() {
+        long count = evenementRepository.count();  // Votre logique existante
+
+        // Log pour voir quelle instance répond
+        System.out.println("🔵 Requête traitée par l'instance sur le port : " + serverPort);
+
+        return "Instance port " + serverPort + " - Count: " + count;
     }
 }

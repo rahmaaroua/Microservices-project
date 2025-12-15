@@ -20,5 +20,4 @@ sampling:
 probability: 1.0 # Taux d'échantillonnage pour la traçabilité (1.0 signifie
   que toutes les requêtes seront tracées)
 zipkin:
-endpoint: http://localhost:9411/api/v2/spans # URL du serveur Zipkin pour
-  collecter et visualiser les traces
+endpoint: http://localhost:9411/api/v2/spans # URL du serveur Zipkin pour collecter et visualiser les traces

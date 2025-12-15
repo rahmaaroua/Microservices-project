@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 import tn.univ.ReservationMicroservice.Entity.Reservation;
 import tn.univ.ReservationMicroservice.Feign.EvenementDto;
 import tn.univ.ReservationMicroservice.Repository.ReservationRepository;
@@ -23,6 +24,7 @@ public class ReservationController {
     @Autowired
     IReservationService reservationService;
     ReservationRepository reservationRepository ;
+
 
     @GetMapping("/retrieve-all")
     public List<Reservation> getReservations() {
@@ -81,5 +83,28 @@ public ResponseEntity<EvenementDto> testEvenement(@PathVariable int id) {
         return ResponseEntity.ok(fallbackDto);
     }
 
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/count-evenements")
+    public String countEvenements() {
+        String url = "http://evenement-microservice/Evenement/count";
+        String response = restTemplate.getForObject(url, String.class);
+        return "Nombre d'événements : " + response;
+    }
+
+    // Endpoint qui utilise RestTemplate (ne fonctionne pas actuellement)
+    @GetMapping("/evenement/{id}")
+    public String getEvenement(@PathVariable int id) {
+        String url = "http://evenement-microservice/Evenement/" + id;
+        return restTemplate.getForObject(url, String.class);
+    }
+
+
+    // Endpoint de test pour vérifier l'injection
+    @GetMapping("/test-resttemplate")
+    public String testRestTemplate() {
+        return "RestTemplate est : " + (restTemplate == null ? "❌ NULL" : "✅ OK");
+    }
 
 }

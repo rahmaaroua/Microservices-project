@@ -47,3 +47,12 @@ resilience4j:
         minimumNumberOfCalls: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 5s
+
+
+
+  cloud:
+    loadbalancer:
+      instances:
+        evenement-microservice:
+          - uri: http://localhost:8082
+          - uri: http://localhost:8083
