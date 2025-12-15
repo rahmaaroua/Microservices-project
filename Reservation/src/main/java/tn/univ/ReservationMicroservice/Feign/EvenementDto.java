@@ -1,4 +1,6 @@
-package tn.univ.ReservationMicroservice.DTO;
+package tn.univ.ReservationMicroservice.Feign;
+
+import java.util.Date;
 
 import java.util.Date;
 

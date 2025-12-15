@@ -1,10 +1,19 @@
 package tn.univ.ReservationMicroservice.Controller;
 
 import java.util.List;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.univ.ReservationMicroservice.Entity.Reservation;
+import tn.univ.ReservationMicroservice.Feign.EvenementDto;
+import tn.univ.ReservationMicroservice.Repository.ReservationRepository;
 import tn.univ.ReservationMicroservice.Service.Interfaces.IReservationService;
+
 
 @RestController
 @RequestMapping("/reservation")
@@ -13,6 +22,7 @@ public class ReservationController {
 
     @Autowired
     IReservationService reservationService;
+    ReservationRepository reservationRepository ;
 
     @GetMapping("/retrieve-all")
     public List<Reservation> getReservations() {
@@ -39,9 +49,37 @@ public class ReservationController {
         reservationService.deleteReservation(idReservation);
     }
 
-    @GetMapping("/test/Evenement/{id}")
+    /*@GetMapping("/test/Evenement/{id}")
     public tn.univ.ReservationMicroservice.Dto.EvenementDto testEvenement(@PathVariable int id) {
         return reservationService.getEvenement(id);
+    }*/
+
+
+/*
+    @GetMapping("/test/Evenement/{id}")
+    public ResponseEntity<EvenementDto> testEvenement(@PathVariable int id) {
+        EvenementDto dto = reservationService.getEvenement(id);
+        // on force HTTP 200 même si c'est un fallback
+        return ResponseEntity.ok(dto);
     }
+
+*/
+@GetMapping("/test/Evenement/{id}")
+@Retry(name = "myRetry", fallbackMethod = "fallback")
+@RateLimiter(name = "myRateLimiter", fallbackMethod = "fallback")
+@CircuitBreaker(name = "reservationCircuitBreaker", fallbackMethod = "fallback")
+public ResponseEntity<EvenementDto> testEvenement(@PathVariable int id) {
+    EvenementDto dto = reservationService.getEvenement(id);
+    return ResponseEntity.ok(dto);
+}
+
+    // Fallback pour Retry, RateLimiter et CircuitBreaker
+    public ResponseEntity<EvenementDto> fallback(int id, Exception e) {
+        EvenementDto fallbackDto = new EvenementDto();
+        fallbackDto.setNom("Service indisponible");
+        fallbackDto.setDescription("Veuillez réessayer plus tard. Cause: " + e.getMessage());
+        return ResponseEntity.ok(fallbackDto);
+    }
+
 
 }

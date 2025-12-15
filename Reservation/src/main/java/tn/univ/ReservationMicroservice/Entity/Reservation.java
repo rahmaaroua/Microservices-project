@@ -24,4 +24,7 @@ public class Reservation implements Serializable {
     private boolean confirme;
 
 
+    public String getId() {
+        return idReservation + "";
+    }
 }

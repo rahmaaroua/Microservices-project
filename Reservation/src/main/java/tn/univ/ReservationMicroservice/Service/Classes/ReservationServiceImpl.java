@@ -55,8 +55,11 @@ public class ReservationServiceImpl implements IReservationService {
 package tn.univ.ReservationMicroservice.Service.Classes;
 
 import java.util.List;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.univ.ReservationMicroservice.Feign.EvenementDto;
 import tn.univ.ReservationMicroservice.Feign.EvenementFeignClient;
 import tn.univ.ReservationMicroservice.Repository.ReservationRepository;
 import tn.univ.ReservationMicroservice.Service.Interfaces.IReservationService;
@@ -111,12 +114,45 @@ public class ReservationServiceImpl implements IReservationService {
 
 
 
-    @Autowired
-    private EvenementFeignClient evenementFeignClient;
 
-    // Méthode pour récupérer un Evenement via Feign
-    public tn.univ.ReservationMicroservice.Dto.EvenementDto getEvenement(int id) {
+
+
+
+    private final EvenementFeignClient evenementFeignClient;
+
+    public ReservationServiceImpl(EvenementFeignClient evenementFeignClient) {
+        this.evenementFeignClient = evenementFeignClient;
+    }
+
+/*
+
+    @Override
+    @CircuitBreaker(name = "evenementService", fallbackMethod = "getEvenementFallback")
+    public EvenementDto getEvenement(int id) {
         return evenementFeignClient.getEvenementById(id);
+    }
+*/
+    // Fallback si Evenement KO
+    public EvenementDto getEvenementFallback(int id, Throwable t) {
+        EvenementDto dto = new EvenementDto();
+        dto.setNom("Evenement indisponible");
+        dto.setDescription("Service Evenement en panne (fallback activé par Resilience4j)");
+        return dto;
+    }
+private int compteur = 0;
+
+    @Override
+    public EvenementDto getEvenement(int id) {
+        compteur++;
+        // 70% de chance de lancer une exception pour tester Retry
+        if (Math.random() < 0.7 || compteur <= 5) {
+            throw new RuntimeException("Service événement temporairement indisponible");
+        }
+        // Sinon on retourne un événement fictif
+        EvenementDto dto = new EvenementDto();
+        dto.setNom("Événement " + id);
+        dto.setDescription("Description de l'événement " + id);
+        return dto;
     }
 
 }
