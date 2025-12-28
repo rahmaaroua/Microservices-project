@@ -68,19 +68,17 @@ public class GestionEvenementController {
      * Méthode principale : Récupère toutes les réservations depuis le microservice Reservation
      * Applique Retry, RateLimiter et CircuitBreaker
      */
+
+
     @GetMapping("/test-reservations")
     @Retry(name = "myRetry", fallbackMethod = "fallbackReservations")
-    @RateLimiter(name = "myRateLimiter", fallbackMethod = "fallbackReservations")
     @CircuitBreaker(name = "reservationCircuitBreaker", fallbackMethod = "fallbackReservations")
     public ResponseEntity<String> getAllReservations() {
-        System.out.println("🔄 Tentative d'appel au microservice Reservation...");
-
+        System.out.println("🔵 [EVENEMENT PORT " + serverPort + "] Appel à Reservation");
         String url = "http://reservation-microservice/reservation/retrieve-all";
         String response = restTemplate.getForObject(url, String.class);
-
         return ResponseEntity.ok("✅ Réservations récupérées : " + response);
     }
-
     /**
      * Méthode avec ID : Récupère une réservation par ID
      */
@@ -125,4 +123,5 @@ public class GestionEvenementController {
 
         return ResponseEntity.ok(message);
     }
+
 }
