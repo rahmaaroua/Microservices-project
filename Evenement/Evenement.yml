@@ -21,3 +21,39 @@ probability: 1.0 # Taux d'échantillonnage pour la traçabilité (1.0 signifie
   que toutes les requêtes seront tracées)
 zipkin:
 endpoint: http://localhost:9411/api/v2/spans # URL du serveur Zipkin pour collecter et visualiser les traces
+# Configuration Resilience4j
+resilience4j:
+  retry:
+    instances:
+      myRetry:
+        max-attempts: 3              # 3 tentatives maximum
+        wait-duration: 500ms         # 500ms entre chaque tentative
+
+  circuitbreaker:
+    instances:
+      reservationCircuitBreaker:
+        sliding-window-size: 10      # Fenêtre de 10 requêtes
+        failure-rate-threshold: 50   # Ouvre le circuit si 50% d'échecs
+        wait-duration-in-open-state: 10000ms  # Attend 10s avant de réessayer
+        permitted-number-of-calls-in-half-open-state: 3
+
+  ratelimiter:
+    instances:
+      myRateLimiter:
+        limit-for-period: 5          # 5 requêtes max
+        limit-refresh-period: 1s     # Par seconde
+        timeout-duration: 500ms      # Timeout 500ms
+
+# Configuration Actuator + Prometheus
+
+  endpoints:
+    web:
+      exposure:
+        include: "*"                 # Expose tous les endpoints actuator
+  metrics:
+    export:
+      prometheus:
+        enabled: true                # Active l'export vers Prometheus
+  tracing:
+    sampling:
+      probability: 1.0

@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="5d84a367-8229-4eea-a895-683e1ae0f504" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Service/Interfaces/IEventService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Microservices-project-main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Microservices-project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Controller/GestionEvenementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Controller/GestionEvenementController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Entity/Evenement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Entity/Evenement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Repository/EvenementRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Repository/EvenementRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/ReservationMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/GestionEvenementApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Service/Classes/EvenementServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Service/Classes/EvenementServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Evenement/src/main/java/tn/univ/GestionEvenement/Service/Interfaces/IEvenemntService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Evenement/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Evenement/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Evenement/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/src/main/java/tn/univ/ReservationMicroservice/ReservationMicroserviceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation/src/main/java/tn/univ/ReservationMicroservice/ReservationMicroserviceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Reservation/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Controller/ReservationController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Dto/EvenementDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Entity/Reservation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Entity/ReservationCQRS.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Feign/EvenementDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Feign/EvenementFallback.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Feign/EvenementFeignClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Repository/ReservationRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/ReservationMicroserviceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Service/Classes/ReservationServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/Service/Interfaces/IReservationService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/config/LoadBalancerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/config/ScheduledTasks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/aggregates/ReservationCQRSAggregate.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/commands/CreateReservationCQRSCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/controllers/ReservationCQRSCommandController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/controllers/ReservationCQRSQueryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/dto/ReservationCQRSDTO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/events/ReservationCQRSCreatedEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/projections/ReservationCQRSEventHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/projections/ReservationCQRSProjection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/queries/GetAllReservationsCQRSQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/queries/GetReservationCQRSByIdQuery.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reservation/target/classes/tn/univ/ReservationMicroservice/cqrs/repositories/ReservationCQRSRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config-server/src/main/java/tn/univ/configserver/ConfigServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/config-server/src/main/java/tn/univ/configserver/ConfigServerApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +44,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -41,13 +61,28 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.EurekaServerApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ThinkPad Pro/Microservices-project/Evenement",
+    "last_opened_file_path": "C:/Users/ThinkPad Pro/Desktop/Microservices-project/Reservation",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="eureka-server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="tn.univ.eurekaserver.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -67,6 +102,7 @@
       <workItem from="1765619382841" duration="186000" />
       <workItem from="1765621065638" duration="43000" />
       <workItem from="1765621146534" duration="39000" />
+      <workItem from="1766761451315" duration="1442000" />
     </task>
     <servers />
   </component>
