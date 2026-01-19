@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/organisateurs")
@@ -42,5 +43,17 @@ public class OrganisateurController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable int id) {
         service.deleteOrganisateur(id);
+    }
+
+// ===== EVENEMENT MICROSERVICE =====
+
+    @GetMapping("/evenement/{id}")
+    public Map<String, Object> getEvenement(@PathVariable int id) {
+        return service.getEvenementById(id);
+    }
+
+    @GetMapping("/evenement/count")
+    public String getEvenementCount() {
+        return service.getEvenementCount();
     }
 }
