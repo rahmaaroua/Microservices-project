@@ -21,8 +21,11 @@
     <description>Organisateur microservice with Eureka client</description>
 
     <properties>
-        <java.version>17</java.version>
-        <spring-cloud.version>2022.0.5</spring-cloud.version> <!-- Spring Cloud release train -->
+        <java.version>19</java.version>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+        <spring-cloud.version>2022.0.4</spring-cloud.version>
+        <resilience4j.version>2.2.0</resilience4j.version>
     </properties>
 
     <!-- Spring Cloud dependency management -->
@@ -95,27 +98,81 @@
         <!-- Resilience4j -->
         <dependency>
             <groupId>io.github.resilience4j</groupId>
-           <artifactId>resilience4j-spring-boot3</artifactId>
+            <artifactId>resilience4j-spring-boot3</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <!-- Resilience4j Core -->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-core</artifactId>
+            <version>2.2.0</version>
         </dependency>
         
-        <!-- Required for Feign fallback -->
+        <!-- Resilience4j Circuit Breaker -->
+       <dependency>
+           <groupId>io.github.resilience4j</groupId>
+           <artifactId>resilience4j-circuitbreaker</artifactId>
+           <version>2.2.0</version>
+       </dependency>
+    
+        <!-- Resilience4j Retry -->
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-retry</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+    
+        <!-- Resilience4j Rate Limiter -->
+        <dependency>
+            <groupId>io.github.resilience4j</groupId>
+            <artifactId>resilience4j-ratelimiter</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <!-- Micrometer Prometheus -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+    
+        <!-- AOP pour Resilience4j -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!-- Actuator for monitoring -->
+        <dependency>
+           <groupId>org.springframework.boot</groupId>
+           <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+         <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-spring-boot-starter</artifactId>
+            <version>4.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.axonframework</groupId>
+            <artifactId>axon-configuration</artifactId>
+            <version>4.8.0</version>
         </dependency>
 
     </dependencies>
 
     <build>
         <plugins>
-            <!-- Compiler plugin for Java 17 -->
+            <!-- Compiler plugin for Java 19 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>19</source>
+                    <target>19</target>
+                    <release>19</release>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>org.projectlombok</groupId>

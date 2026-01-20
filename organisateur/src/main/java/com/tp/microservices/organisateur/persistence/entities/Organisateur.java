@@ -20,6 +20,10 @@ public class Organisateur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idOrg;
 
+    // UUID pour lier avec l'Aggregate Axon
+    @Column(unique = true, nullable = false)
+    private String aggregateId;
+    
     @NotBlank(message = "Le nom est obligatoire")
     private String nom;
 
